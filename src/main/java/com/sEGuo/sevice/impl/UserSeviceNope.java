@@ -1,4 +1,4 @@
-package com.sEGuo.sevice.imp;
+package com.sEGuo.sevice.impl;
 
 import com.sEGuo.sevice.UserSevice;
 import com.sEGuo.dao.UserDao;
