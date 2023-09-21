@@ -7,8 +7,14 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class ConfigurationTest1 {
     @Test
-    void ConfigurationTestOne() {
+    void configurationTestOne() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(Configuration1.class);
         Assertions.assertTrue(ac.containsBean("testConfiguration"));
+    }
+    @Test
+    void configurationTestTwo() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(Configuration1.class);
+        Assertions.assertTrue(ac.containsBean("Configuration1"));
+        Assertions.assertTrue(ac.containsBean("ConfigurationTest1"));
     }
 }
