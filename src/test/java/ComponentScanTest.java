@@ -1,6 +1,7 @@
 import com.sEGuo.Config.ScanConfig;
 import com.sEGuo.Config.ScanConfig2;
 import com.sEGuo.Config.ScanConfig3;
+import com.sEGuo.Config.ScanConfig4;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -44,5 +45,14 @@ public class ComponentScanTest {
         }
         Assertions.assertTrue(annotationConfigApplicationContext.containsBean("scanController"));
         Assertions.assertFalse(annotationConfigApplicationContext.containsBean("scanSevice"));
+    }
+    @Test
+    void scanConfig4() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ScanConfig4.class);
+        String[] beanDefinitionNames = context.getBeanDefinitionNames();
+        for (String name : beanDefinitionNames) {
+            System.out.println(name);
+        }
+        Assertions.assertFalse(context.containsBean("ScanDao"));
     }
 }
