@@ -4,9 +4,9 @@ import com.sEGuo.pojo.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration(value = "Configuration1",proxyBeanMethods = true)
-public class Configuration1 {
-    @Bean(name = "ConfigurationTest1")
+@Configuration(proxyBeanMethods = false, value = "Configuration2")
+public class Configuration2 {
+    @Bean(name = "Configuration2Test")
     public User testConfiguration(){
         return new User("123","123");
     }
