@@ -12,9 +12,6 @@ public class UserSeviceSimple implements UserSevice{
         this.userSimple = userSimple;
     }
 
-    public void setUserSimple(UserDao userSimple) {
-        this.userSimple = userSimple;
-    }
 
     public String userLogin(String email, String pwd){
         User user = userSimple.getUserByEmail(email,pwd);
