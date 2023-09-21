@@ -18,4 +18,11 @@ public class UserSeviceSimple implements UserSevice{
         return "email="+user.getEmail()+" password="+user.getPassword();
     }
 
+    public void init() {
+        System.out.println("UserSeviceSimple.init");
+    }
+
+    public void destroy() {
+        System.out.println("UserSeviceSimple.destroy");
+    }
 }
