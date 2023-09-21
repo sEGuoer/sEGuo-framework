@@ -1,4 +1,5 @@
 import com.sEGuo.sevice.UserSevice;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -10,11 +11,16 @@ public class initAndDestroyMethodTest {
     @BeforeAll
     static void BeforeAllTest(){
         ac = new ClassPathXmlApplicationContext("bean.xml");
-    }    @Test
+    }
+
+    @AfterAll
+    static void AfterAllTest(){
+        ac.close();
+    }
+    @Test
     void initAndDestroyMethod(){
         UserSevice userSevice =(UserSevice) ac.getBean("UserSevice");
         Assertions.assertNotNull(userSevice);
-        ac.close();
     }
     @Test
     void InitializingBeanTest(){
@@ -26,9 +32,5 @@ public class initAndDestroyMethodTest {
     void DisposableBeanTest(){
         UserSevice userSevice =(UserSevice) ac.getBean("UserSevice");
         Assertions.assertNotNull(userSevice);
-        ac.close();
-        /*  此时就会显示出destroy的方法的输出结果(接口重写的方法)
-          */
-
     }
 }
