@@ -4,9 +4,11 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.sEGuo.druid.method.DruidDemo;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.sql.DataSource;
 import java.io.InputStream;
@@ -20,18 +22,9 @@ public class DruidConfig {
 
     @Bean
     public DataSource dataSource() {
-        Properties properties = new Properties();
-        Connection connection = null;
-        try (InputStream inputStream = DruidDemo.class.getClassLoader().getResourceAsStream("druid.properties")) {
-            properties.load(inputStream);
-            dataSource = DruidDataSourceFactory.createDataSource(properties);
-            connection = dataSource.getConnection();
-            System.out.println(dataSource);
-            return dataSource;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        ClassPathXmlApplicationContext ac=new ClassPathXmlApplicationContext("druid.xml");
+        DruidDataSource dataSource = (DruidDataSource) ac.getBean("dataSource");
+        return  dataSource;
     }
 
 }
