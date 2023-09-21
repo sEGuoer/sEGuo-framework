@@ -6,7 +6,7 @@ import com.sEGuo.pojo.User;
 import org.springframework.beans.factory.InitializingBean;
 
 
-public class UserSeviceSimple implements UserSevice, InitializingBean {
+public class UserSeviceSimple implements UserSevice {
     protected UserDao userSimple;
 
     public UserSeviceSimple(UserDao userSimple) {
@@ -19,8 +19,13 @@ public class UserSeviceSimple implements UserSevice, InitializingBean {
         return "email="+user.getEmail()+" password="+user.getPassword();
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("UserSeviceSimple.afterPropertiesSet");
+
+    public void init() {
+        System.out.println("UserSeviceSimple.init");
     }
+
+    public void destroy() {
+        System.out.println("UserSeviceSimple.destroy");
+    }
+
 }
