@@ -1,27 +1,29 @@
 import com.sEGuo.sevice.UserSevice;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class initAndDestroyMethodTest {
-    @Test
+    static ClassPathXmlApplicationContext ac;
+    @BeforeAll
+    static void BeforeAllTest(){
+        ac = new ClassPathXmlApplicationContext("bean.xml");
+    }    @Test
     void initAndDestroyMethod(){
-        ClassPathXmlApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
         UserSevice userSevice =(UserSevice) ac.getBean("UserSevice");
         Assertions.assertNotNull(userSevice);
         ac.close();
     }
     @Test
     void InitializingBeanTest(){
-        ApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
         UserSevice userSevice =(UserSevice) ac.getBean("UserSevice");
         Assertions.assertNotNull(userSevice);
 
     }
     @Test
     void DisposableBeanTest(){
-        ClassPathXmlApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
         UserSevice userSevice =(UserSevice) ac.getBean("UserSevice");
         Assertions.assertNotNull(userSevice);
         ac.close();
