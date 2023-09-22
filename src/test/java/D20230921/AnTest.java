@@ -29,16 +29,28 @@ public class AnTest {
 
     @Test
     void prototype(){
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(out);
+        System.setOut(printStream);
+        Assertions.assertEquals("",out.toString());
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Configurations.class);
         Configurations configurations = (Configurations) context.getBean("Configuration1");
+        Assertions.assertEquals("Configurations.testConfiguration1"+System.getProperty("line.separator"),out.toString());
+
 //        Assertions.assertSame(configurations.testConfiguration2(),configurations.testConfiguration2());
     }
     @Test
     @DisplayName("要测试方法是否被调用时容器初始化时就调用，用其他两个test测试")
     void LazyTest(){
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(out);
+        System.setOut(printStream);
+        Assertions.assertEquals("",out.toString());
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Configurations.class);
         Configurations configurations = (Configurations) context.getBean("Configuration1");
+        Assertions.assertEquals("Configurations.testConfiguration1"+System.getProperty("line.separator"),out.toString());
         Assertions.assertSame(configurations.testConfiguration3(),configurations.testConfiguration3());
+        Assertions.assertEquals("Configurations.testConfiguration1"+System.getProperty("line.separator")+"Configurations.testConfiguration3"+System.getProperty("line.separator"),out.toString());
     }
 
 
