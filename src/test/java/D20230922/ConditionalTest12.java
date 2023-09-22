@@ -16,7 +16,7 @@ public class ConditionalTest12 {
     }
     @Test
     void Conditional2Test(){
-        System.setProperty("os.name","Mac");
+        System.setProperty("os.name","MacOS");
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConditionalClass2.class);
         ConditionalClass2 conditional = (ConditionalClass2) context.getBean("Conditional2");
     }
