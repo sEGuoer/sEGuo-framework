@@ -7,7 +7,7 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 public class MacCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-
+        System.out.println(context.getEnvironment().getProperty("os.name"));
         return context.getEnvironment().getProperty("os.name").contains("Mac");
     }
 }

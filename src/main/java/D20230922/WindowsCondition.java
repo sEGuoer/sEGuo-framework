@@ -9,6 +9,7 @@ import java.util.Properties;
 public class WindowsCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        System.out.println(context.getEnvironment().getProperty("os.name"));
         return context.getEnvironment().getProperty("os.name").contains("Windows");
     }
 }
