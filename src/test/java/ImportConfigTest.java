@@ -1,8 +1,5 @@
 
-import com.sEGuo.atImport.Apple;
-import com.sEGuo.atImport.Banana;
-import com.sEGuo.atImport.Cat;
-import com.sEGuo.atImport.ImportConfig;
+import com.sEGuo.atImport.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -21,5 +18,8 @@ public class ImportConfigTest {
         Cat cat = (Cat) ac.getBean("com.sEGuo.atImport.Cat");
         Assertions.assertEquals("com.sEGuo.atImport.Cat", cat.getClass().getName());
         Assertions.assertEquals("Cat.getCat", cat.getCat());
+        Dog dog = (Dog) ac.getBean("Dog");
+        Assertions.assertEquals("com.sEGuo.atImport.Dog", dog.getClass().getName());
+        Assertions.assertEquals("Dog.getDog", dog.getDog());
     }
 }
