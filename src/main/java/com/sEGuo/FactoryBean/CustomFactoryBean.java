@@ -19,4 +19,11 @@ public class CustomFactoryBean implements FactoryBean {
     public boolean isSingleton() {
         return false;
     }
+
+    private void init() {
+        System.out.println("CustomFactoryBean.init");
+    }
+    private void destory() {
+        System.out.println("CustomFactoryBean.destory");
+    }
 }
