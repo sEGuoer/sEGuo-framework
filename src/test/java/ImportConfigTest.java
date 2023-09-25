@@ -1,12 +1,14 @@
 
 import com.sEGuo.atImport.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class ImportConfigTest {
     @Test
+    @DisplayName("除了importBeanDefinitionRegister是自己命名之外，其他都是包名加类名")
     void ImportConfig() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ImportConfig.class);
         Apple apple = (Apple) ac.getBean("com.sEGuo.atImport.Apple");

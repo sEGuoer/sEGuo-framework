@@ -2,7 +2,10 @@ package com.sEGuo.FactoryBean;
 
 
 import org.springframework.beans.factory.FactoryBean;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class CustomFactoryBean implements FactoryBean {
 
     @Override

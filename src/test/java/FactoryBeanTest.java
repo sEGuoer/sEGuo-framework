@@ -1,13 +1,17 @@
+import com.sEGuo.FactoryBean.CustomBean;
+import com.sEGuo.FactoryBean.CustomFactoryBean;
 import com.sEGuo.FactoryBean.FactoryBeanConfig;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class FactoryBeanTest {
     @Test
+    @DisplayName("用FactoryBean接口拿到工厂批量生产的bean")
     void FactoryBeanConfigTest() throws Exception {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(FactoryBeanConfig.class);
-        FactoryBeanConfig factoryBeanConfig = (FactoryBeanConfig)ac.getBean("FactoryBeanConfig");
-        Assertions.assertEquals("class com.sEGuo.FactoryBean.CustomBean",factoryBeanConfig.getCustomFactoryBean().getObjectType().toString());
+        CustomBean customFactoryBean = (CustomBean)ac.getBean("customFactoryBean");
+        Assertions.assertTrue(ac.containsBean("customFactoryBean"));
     }
 }
