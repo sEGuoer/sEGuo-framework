@@ -2,6 +2,8 @@ import com.sEGuo.FactoryBean.CustomBean;
 import com.sEGuo.FactoryBean.CustomFactoryBean;
 import com.sEGuo.FactoryBean.FactoryBeanConfig;
 import com.sEGuo.FactoryBean.LifecycleJSR250;
+import com.sEGuo.atValue.ValueBean;
+import com.sEGuo.atValue.ValueBeanConfig;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -39,5 +41,14 @@ public class FactoryBeanTest {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(LifecycleJSR250.class);
         LifecycleJSR250 lifecycleJSR250 = (LifecycleJSR250)ac.getBean("LifecycleJSR250");
         Assertions.assertEquals("CustomFactoryBean.init"+System.getProperty("line.separator")+"CustomFactoryBean.destory"+System.getProperty("line.separator"),out.toString());
+    }
+    @Test
+    @DisplayName("@PropertySource@Value来用配置文件给class的state赋值")
+    void FactoryBeanConfigTest3() throws Exception {
+        Assertions.assertEquals("",out.toString());
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ValueBeanConfig.class);
+        ValueBean valueBean = (ValueBean)ac.getBean(ValueBean.class);
+        Assertions.assertEquals("ValueBean{text='haha', description='${valueBean.description}', math=2}",valueBean.toString());
+
     }
 }
