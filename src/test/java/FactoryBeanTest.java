@@ -14,4 +14,11 @@ public class FactoryBeanTest {
         CustomBean customFactoryBean = (CustomBean)ac.getBean("customFactoryBean");
         Assertions.assertTrue(ac.containsBean("customFactoryBean"));
     }
+    @Test
+    @DisplayName("用FactoryBean接口拿到工厂批量生产的本身的bean")
+    void FactoryBeanConfigTest1() throws Exception {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(FactoryBeanConfig.class);
+        CustomFactoryBean customFactoryBean = (CustomFactoryBean)ac.getBean("&customFactoryBean");
+        Assertions.assertTrue(ac.containsBean("&customFactoryBean"));
+    }
 }
