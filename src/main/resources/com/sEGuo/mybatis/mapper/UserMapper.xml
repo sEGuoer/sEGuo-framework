@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sEGuo.mybatis.mapper.UserMapper">
+    <sql id="select-name">
+        id as class_id,title,creator,</sql>
+    <!--    把数据库中的id对应class中的class_id，sql种元素要写全-->
+    <select id="tableinfo" resultMap="RuseltMape">
+        <!--<include refid="select-name"/>-->
+        select *
+        from blog_table
+        where id = #{id}
+    </select>
+    <select id="UserInfo" resultType="com.sEGuo.mybatis.po.User">
+        <!--<include refid="select-name"/>-->
+        select *
+        from user
+        where id = #{id}
+    </select>
+    <select id="getUser_id" resultType="int">
+        select id
+        from user
+        where email =#{email}
+    </select>
+    <delete id="deleteManyUser" >
+        delete
+        from user where id in
+        <foreach collection="array" item="ints" open="(" close=")" separator="," >
+            #{ints}
+        </foreach>
+    </delete>
+
+    <select id="searchBlog" resultType="User">
+        select *
+        from blog_table
+        <where>
+            <if test="title != '' and title != null">
+                and title LIKE #{title}
+            </if>
+            <if test="creator != '' and creator != null">
+                and creator LIKE #{creator}
+            </if>
+        </where>
+    </select>
+    <insert id="addUser" useGeneratedKeys="true" >
+        insert into user (username,email, account, password)
+        values (#{username},#{email}, #{account} ,#{password})
+    </insert>
+
+
+    <update id="updateUser">
+        update user
+        <set>
+            <if test="email != null and email !=''">
+                email = #{email},
+            </if>
+            <if test="password != null and password !=''">
+                password = #{password},
+            </if>
+            <if test="account != null and account !=''">
+                account = #{account},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUser">
+        delete
+        from user
+        where id = #{id}
+    </delete>
+    <!--    <select id="searchBlog" resultType="User">-->
+    <!--        select *-->
+    <!--        from blog_table-->
+    <!--        <choose>-->
+    <!--            <when test="title != '' and title != null">-->
+    <!--                where title LIKE #{title}-->
+    <!--            </when>-->
+    <!--            <when test="creator != '' and creator != null">-->
+    <!--                where creator LIKE #{creator}-->
+    <!--            </when>-->
+    <!--        </choose>-->
+    <!--    </select>-->
+    <resultMap id="RuseltMape" type="com.sEGuo.mybatis.po.User">
+        <id property="id" column="id" />
+        <result property="title" column="title" />
+        <result property="creator" column="creator" />  </resultMap>
+</mapper>
