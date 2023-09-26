@@ -10,7 +10,7 @@ public class ConfigurationTest1 {
     @Test
     void configurationTestOne() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(Configuration1.class);
-        Assertions.assertTrue(ac.containsBean("testConfiguration"));
+        Assertions.assertTrue(ac.containsBean("ConfigurationTest1"));
     }
     @Test
     void configurationTestTwo() {

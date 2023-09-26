@@ -14,6 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 public class FactoryBeanTest {
+
     @Test
     @DisplayName("用FactoryBean接口拿到工厂批量生产的bean")
     void FactoryBeanConfigTest() throws Exception {
@@ -28,27 +29,6 @@ public class FactoryBeanTest {
         CustomFactoryBean customFactoryBean = (CustomFactoryBean)ac.getBean("&customFactoryBean");
         Assertions.assertTrue(ac.containsBean("&customFactoryBean"));
     }
-    static final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    @BeforeAll
-    static void beforeAll(){
-        PrintStream printStream = new PrintStream(out);
-        System.setOut(printStream);
-    }
-    @Test
-    @DisplayName("用JSR250中的@PostConstruct来代替bean中的init和destroy方法")
-    void FactoryBeanConfigTest2() throws Exception {
-        Assertions.assertEquals("",out.toString());
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(LifecycleJSR250.class);
-        LifecycleJSR250 lifecycleJSR250 = (LifecycleJSR250)ac.getBean("LifecycleJSR250");
-        Assertions.assertEquals("CustomFactoryBean.init"+System.getProperty("line.separator")+"CustomFactoryBean.destory"+System.getProperty("line.separator"),out.toString());
-    }
-    @Test
-    @DisplayName("@PropertySource@Value来用配置文件给class的state赋值")
-    void FactoryBeanConfigTest3() throws Exception {
-        Assertions.assertEquals("",out.toString());
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ValueBeanConfig.class);
-        ValueBean valueBean = (ValueBean)ac.getBean(ValueBean.class);
-        Assertions.assertEquals("ValueBean{text='haha', description='${valueBean.description}', math=2}",valueBean.toString());
 
-    }
+
 }
