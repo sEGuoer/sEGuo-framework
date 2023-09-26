@@ -13,6 +13,7 @@ public class PrimaryConfig {
     * @Autowired依赖引入的bean优先选择和依赖同名
     * @Qualifier也可以指定选择依赖哪个bean
     * */
+    @Primary
     @Bean
     public PrimaryBean getPrimaryBean2(){
         return new PrimaryBean("other");

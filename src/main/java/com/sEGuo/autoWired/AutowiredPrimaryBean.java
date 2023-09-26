@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Component(value = "AutowiredPrimaryBean")
 public class AutowiredPrimaryBean {
     @Autowired
-    @Qualifier(value = "getPrimaryBean2")
     private PrimaryBean primaryBean;
     public PrimaryBean getPrimaryBean(){
         return primaryBean;

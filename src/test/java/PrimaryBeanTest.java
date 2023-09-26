@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class PrimaryBeanTest {
     @Test
-    @DisplayName("@QualifierTest在通过@Autowired（其他几个@也可以）注入依赖是，指定拿到哪个bean")
+    @DisplayName("@Primary在配置类 @Bean前加入指定拿到当前bean")
     void primaryBean(){
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrimaryConfig.class);
         AutowiredPrimaryBean autowiredPrimaryBean = (AutowiredPrimaryBean) ac.getBean(AutowiredPrimaryBean.class);
