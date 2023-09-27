@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-@Service(value = "userService")
+
 public interface UserMapper extends UserDao {
 
     List<User> tableinfo(int id);

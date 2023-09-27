@@ -4,7 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!--<properties resource="druid.properties"></properties>-->
-    <properties resource="application.properties">
+    <properties>
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/jdbc"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value=""></property>
     </properties>
 
     <typeAliases>
