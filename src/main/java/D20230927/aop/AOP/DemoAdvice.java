@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class DemoAdvice {
-    @Pointcut("execution(void D20230927.aop.dao.imp.UserDaoImp.create())")
+    @Pointcut("execution(void D20230927.aop.dao.imp.UserDaoImp.*())")
     private void pt() {
     }
     @Before("pt()")
