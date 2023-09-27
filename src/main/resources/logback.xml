@@ -20,10 +20,10 @@
     </root>
 
     <!--    <logger name="D20230904.mybatis.mapper" level="WARN"/>-->
-<!--        <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="WARN"/>-->
-<!--        <logger name="org.springframework.aop.aspectj.annotation.ReflectiveAspectJAdvisorFactory" level="WARN"/>-->
-<!--        <logger name="org.springframework.context.annotation.AnnotationConfigApplicationContext" level="WARN"/>-->
-<!--        <logger name="org.springframework.core.LocalVariableTableParameterNameDiscoverer" level="ERROR"/>-->
-<!--        <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactor" level="WARN"/>-->
+            <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="WARN"/>
+            <logger name="org.springframework.aop.aspectj.annotation.ReflectiveAspectJAdvisorFactory" level="WARN"/>
+            <logger name="org.springframework.context.annotation.AnnotationConfigApplicationContext" level="WARN"/>
+            <logger name="org.springframework.core.LocalVariableTableParameterNameDiscoverer" level="ERROR"/>
+            <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactor" level="WARN"/>
 
 </configuration>
