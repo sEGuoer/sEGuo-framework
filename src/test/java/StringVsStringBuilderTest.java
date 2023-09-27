@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Test;
 
-public class T {
+public class StringVsStringBuilderTest {
     @Test
-    void t1(){
+    void StringTest(){
         String s ="null";
         long start = System.currentTimeMillis();
         for (int i = 0 ; i < 50000 ; i++){
@@ -12,7 +12,7 @@ public class T {
         System.out.println("===" + (end - start));
     }
     @Test
-    void t2(){
+    void StringBuilderTest(){
         StringBuilder sb = new StringBuilder("null");
         long start = System.currentTimeMillis();
         for (int i = 0 ; i < 50000 ; i++){
