@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:application.properties" />
+    <!--2 配置C3P0数据源 -->
+    <bean id="datasource" class="javax.sql.DataSource;">
+        <!--驱动类名 -->
+        <property name="driverClass" value="${driverClassName}" />
+        <!-- url -->
+        <property name="jdbcUrl" value="${url}" />
+        <!-- 用户名 -->
+        <property name="user" value="${username}" />
+        <!-- 密码 -->
+        <property name="password" value="${password}" />
+    </bean>
+    <!-- mapper配置 -->
+    <!-- 让spring管理sqlsessionfactory 使用mybatis和spring整合包中的 -->
+    <bean id="sqlSessionFactory" class="org.apache.ibatis.session.SqlSessionFactory;">
+        <!-- 数据库连接池 -->
+        <property name="dataSource" ref="datasource" />
+        <!-- 加载mybatis的mapper接口映射文件 -->
+        <property name="mapperLocations" value="classpath*:com/sm/mapper/*.xml" />
+        <!-- 加载mybatis的全局配置文件 -->
+        <property name="configLocation" value="classpath:SqlMapConfig.xml" />
+    </bean>
+</beans>
