@@ -4,6 +4,7 @@ import com.sEGuo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -19,8 +20,8 @@ public class UserController {
     }
     @RequestMapping("/User/no-param")
     @ResponseBody
-    String noParam(String name ,String id){
+    String noParam(@RequestParam("name") String username , String id){
         userService.add();
-        return ("UserController.noParam name=" + name +" id= " + id);
+        return ("UserController.noParam name=" + username +" id= " + id);
     }
 }
