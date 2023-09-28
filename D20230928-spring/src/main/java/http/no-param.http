@@ -14,3 +14,8 @@ Content-Type: application/json
   "name" : "123",
   "id" : "1"
 }
+
+
+### user/date-time-format
+GET http://localhost:8080/D20230928_spring_war/User/date-time-format?dateDay=1234-12-12
+Content-Type: application/json
