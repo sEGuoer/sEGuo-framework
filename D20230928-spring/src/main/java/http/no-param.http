@@ -4,3 +4,13 @@ Content-Type: application/json
 
 ### user/Param-pojo
 http://localhost:8080/D20230928_spring_war/User/param-pojo?id=1&name=12
+Content-Type: application/json
+
+### user/Param-pojo-body
+http://localhost:8080/D20230928_spring_war/User/param-pojo-body
+Content-Type: application/json
+
+{
+  "name" : "123",
+  "id" : "1"
+}
