@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="D20230927.mybatis.mapper.UserMapper">
+    <sql id="select-name">
+        id as class_id,title,creator,</sql>
+    <!--    把数据库中的id对应class中的class_id，sql种元素要写全-->
+    <select id="UserInfo" resultType="D20230927.mybatis.po.User">
+        <!--<include refid="select-name"/>-->
+        select *
+        from tb_user
+        where id = #{id}
+    </select>
+    <select id="getUser_id" resultType="int">
+        select id
+        from tb_user
+        where name =#{name}
+    </select>
+    <insert id="saveWithTransactional" useGeneratedKeys="true" >
+        insert into tb_user (name)
+        values (#{username})
+    </insert>
+    <!--    <select id="searchBlog" resultType="User">-->
+    <!--        select *-->
+    <!--        from blog_table-->
+    <!--        <choose>-->
+    <!--            <when test="title != '' and title != null">-->
+    <!--                where title LIKE #{title}-->
+    <!--            </when>-->
+    <!--            <when test="creator != '' and creator != null">-->
+    <!--                where creator LIKE #{creator}-->
+    <!--            </when>-->
+    <!--        </choose>-->
+    <!--    </select>-->
+    <resultMap id="RuseltMape" type="com.sEGuo.mybatis.po.User">
+        <id property="id" column="id" />
+        <result property="title" column="title" />
+        <result property="creator" column="creator" />  </resultMap>
+</mapper>
