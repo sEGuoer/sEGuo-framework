@@ -11,4 +11,9 @@ public class ResponseController {
     String response(){
         return "/response.jsp";
     }
+    @RequestMapping("/response/text")
+    @ResponseBody
+    String responseText(){
+        return "responseText";
+    }
 }
