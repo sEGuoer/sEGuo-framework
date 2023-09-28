@@ -1,1 +1,6 @@
+### user/Param
 http://localhost:8080/D20230928_spring_war/User/no-param?name=1&id=1&username=2
+Content-Type: application/json
+
+### user/Param-pojo
+http://localhost:8080/D20230928_spring_war/User/param-pojo?id=1&name=12
