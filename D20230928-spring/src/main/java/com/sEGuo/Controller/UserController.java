@@ -17,4 +17,10 @@ public class UserController {
         userService.add();
         return "UserController.register";
     }
+    @RequestMapping("/User/no-param")
+    @ResponseBody
+    String noParam(String name ,String id){
+        userService.add();
+        return ("UserController.noParam name=" + name +" id= " + id);
+    }
 }
