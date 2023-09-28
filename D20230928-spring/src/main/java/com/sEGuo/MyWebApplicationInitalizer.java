@@ -1,12 +1,13 @@
 package com.sEGuo;
 
+import com.sEGuo.Config.MyRootConfig;
 import com.sEGuo.Config.MyWebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class MyWebApplicationInitalizer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
+        return new Class[]{MyRootConfig.class};
     }
 
     @Override
