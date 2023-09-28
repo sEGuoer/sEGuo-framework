@@ -1,9 +1,11 @@
 package com.sEGuo.servlet;
 
 import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebServlet;
 
 import java.io.IOException;
 
+@WebServlet("/verify")
 public class HelloHttpServlet implements Servlet {
 
     @Override
