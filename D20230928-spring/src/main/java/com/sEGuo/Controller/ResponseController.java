@@ -3,6 +3,7 @@ package com.sEGuo.Controller;
 import com.sEGuo.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -35,5 +36,10 @@ public class ResponseController {
     User responseJson1(){
         User use2r = new User("1","asd");
         return use2r;
+    }
+    @RequestMapping(path="request/mapping-method-get",method = RequestMethod.GET)
+    @ResponseBody
+   String mappingMethodGet(String method){
+        return "Method=" + method;
     }
 }
