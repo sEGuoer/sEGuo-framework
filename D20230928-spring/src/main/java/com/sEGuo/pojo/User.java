@@ -8,6 +8,14 @@ public class User {
         return id;
     }
 
+    public User(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public User() {
+    }
+
     public void setId(String id) {
         this.id = id;
     }
