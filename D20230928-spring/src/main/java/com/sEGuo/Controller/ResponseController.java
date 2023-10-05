@@ -2,6 +2,7 @@ package com.sEGuo.Controller;
 
 import com.sEGuo.pojo.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,6 +41,11 @@ public class ResponseController {
     @RequestMapping(path="request/mapping-method-get",method = RequestMethod.GET)
     @ResponseBody
    String mappingMethodGet(String method){
+        return "Method=" + method;
+    }
+    @GetMapping(path="request/get-mapping")
+    @ResponseBody
+   String getMapping(String method){
         return "Method=" + method;
     }
 }
