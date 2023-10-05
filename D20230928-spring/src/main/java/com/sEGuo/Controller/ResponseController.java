@@ -30,4 +30,10 @@ public class ResponseController {
         userList.add(user2);
         return userList;
     }
+    @RequestMapping("/response/user")
+    @ResponseBody
+    User responseJson1(){
+        User use2r = new User("1","asd");
+        return use2r;
+    }
 }
