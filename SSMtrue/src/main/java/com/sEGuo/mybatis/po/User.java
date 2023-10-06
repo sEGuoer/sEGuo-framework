@@ -2,7 +2,16 @@ package com.sEGuo.mybatis.po;
 
 public class User {
     private int id;
+
+    public User(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     private String name;
+
+    public User() {
+    }
 
     @Override
     public String toString() {

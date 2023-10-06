@@ -1,7 +1,7 @@
-package com.sEGuo.Controller;
+package com.sEGuo.mybatis.Controller;
 
-import com.sEGuo.Service.UserService;
-import com.sEGuo.pojo.User;
+import com.sEGuo.mybatis.Service.UserService;
+import com.sEGuo.mybatis.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,6 @@ import java.util.Date;
 
 
 @Controller
-
 public class UserController {
     @Autowired
     UserService userService;
@@ -44,9 +43,5 @@ public class UserController {
     @ResponseBody
     String dateTimeFormat(Date date, @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateDay){
         return ("UserController.dateTimeFormat " + dateDay.toString());
-    }
-    @RequestMapping("/MySQL")
-    String MySQL(){
-        return ("./post/MySQL.jsp");
     }
 }
