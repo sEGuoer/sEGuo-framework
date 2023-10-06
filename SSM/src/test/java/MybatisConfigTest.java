@@ -16,7 +16,7 @@ public class MybatisConfigTest {
     void test(){
 
         List<User> list = userMapper.selectUsersByName("x");
-        System.out.println(list.toString());
+        System.out.println(list);
 
     }
 
