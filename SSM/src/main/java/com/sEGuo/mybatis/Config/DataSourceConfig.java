@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfig {
-    @Value("${spring.datasource.driverclassname}")
+    @Value("${spring.datasource.driverClassname}")
     private String driver;
     @Value ("${spring.datasource.url}")
     private String url;
