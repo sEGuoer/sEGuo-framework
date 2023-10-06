@@ -10,6 +10,7 @@
     <modules>
       <module>D20230928-spring</module>
         <module>SSM</module>
+      <module>SSMtrue</module>
     </modules>
     <properties>
     <maven.compiler.source>17</maven.compiler.source>
