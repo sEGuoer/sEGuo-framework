@@ -10,7 +10,5 @@ public interface UserDao {
 
     List<User> selectUsersByName(String name);
 
-    default String selectBlogContent(String title) {
-        return null;
-    }
+    String selectBlogContent(String title);
 }

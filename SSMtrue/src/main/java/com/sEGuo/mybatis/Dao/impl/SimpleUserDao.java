@@ -9,6 +9,10 @@ import java.util.List;
 
 @Component
 public class SimpleUserDao implements UserDao {
+    @Override
+    public String selectBlogContent(String title) {
+        return "1";
+    }
 
     @Override
     public List<User> selectUsersByName(String name){
