@@ -3,6 +3,7 @@ package com.sEGuo.mybatis.Service.impl;
 import com.sEGuo.mybatis.Dao.UserDao;
 import com.sEGuo.mybatis.Service.UserService;
 import com.sEGuo.mybatis.mapper.UserMapper;
+import com.sEGuo.mybatis.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,12 +17,30 @@ public class UserServiceSimple implements UserService {
     UserMapper userMapper;
 
     @Override
+    public String deleteUsersByID(String id)  {
+        userMapper.deleteUsersByID(id);
+        return "deleteSuccess";
+    }
+
+    @Override
+    public String addNewUser(User user) {
+        userMapper.addNewUser(user);
+        return "addNewUser.success";
+    }
+
+    @Override
+    public String changeUsersByID(String id,String newName) throws IOException {
+        userMapper.changeUsersByID(id,newName);
+        return "changeUsersByID.Success";
+    }
+
+    @Override
     public String add() {
         return "UserServiceSimple.add";
     }
 
     @Override
-    public String bdd(String title) throws IOException {
+    public String selectUsersByName(String title) {
         return userMapper.selectBlogContent(title);
     }
 }

@@ -21,4 +21,19 @@ public class SimpleUserDao implements UserDao {
         list.add(new User(1,"asd"));
         return list;
     }
+
+    @Override
+    public int changeUsersByID(String id,String newName) {
+        return 0;
+    }
+
+    @Override
+    public int addNewUser(User user) {
+        return 0;
+    }
+
+    @Override
+    public int deleteUsersByID(String id) {
+        return 0;
+    }
 }

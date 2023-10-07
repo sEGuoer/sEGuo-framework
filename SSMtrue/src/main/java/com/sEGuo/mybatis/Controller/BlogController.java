@@ -16,7 +16,7 @@ public class BlogController {
     @RequestMapping(value = "/page/MySQL")
     ModelAndView register() throws IOException {
         ModelAndView modelAndView = new ModelAndView();
-        String content = userService.bdd("MySQL");
+        String content = userService.selectUsersByName("MySQL");
         modelAndView.addObject("Content",content);
         modelAndView.setViewName("../MySQL.jsp");
         return modelAndView;

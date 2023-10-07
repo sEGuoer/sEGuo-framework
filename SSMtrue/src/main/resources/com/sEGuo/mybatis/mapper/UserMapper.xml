@@ -14,6 +14,19 @@
         from blog_table
         where title = #{title}
     </select>
+    <delete id="deleteUsersByID" >
+        delete
+        from tb_user where id = #{id}
+    </delete>
+    <update id="changeUsersByID">
+        update tb_user
+        set name = #{newName}
+        where id = #{id}
+    </update>
+    <insert id="addNewUser" useGeneratedKeys="true" >
+        insert into tb_user (name)
+        values (#{name})
+    </insert>
     <resultMap id="RuseltMape" type="com.sEGuo.mybatis.po.User">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
