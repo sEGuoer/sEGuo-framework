@@ -3,6 +3,10 @@ package com.sEGuo.mybatis.po;
 public class User {
     private int id;
 
+    public User(String name) {
+        this.name = name;
+    }
+
     public User(int id, String name) {
         this.id = id;
         this.name = name;
