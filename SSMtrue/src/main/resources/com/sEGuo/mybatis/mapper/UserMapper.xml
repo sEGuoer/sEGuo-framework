@@ -10,8 +10,13 @@
         from tb_user
         where name = #{name}
     </select>
+    <select id="selectBlogContent" resultType="string">
+        select content
+        from blog_table
+        where title = #{title}
+    </select>
     <resultMap id="RuseltMape" type="com.sEGuo.mybatis.po.User">
-        <id property="id" column="id" />
-        <result property="name" column="name" />
-         </resultMap>
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
 </mapper>
