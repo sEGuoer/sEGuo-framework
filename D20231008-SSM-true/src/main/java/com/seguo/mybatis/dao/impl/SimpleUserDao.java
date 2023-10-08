@@ -15,6 +15,11 @@ public class SimpleUserDao implements UserDao {
     }
 
     @Override
+    public List<User> selectAllBlog() {
+        return null;
+    }
+
+    @Override
     public List<User> selectUsersByName(String name){
         List<User> list = new ArrayList<>();
         list.add(new User(1,"asd"));
