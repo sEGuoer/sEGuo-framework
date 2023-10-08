@@ -2,6 +2,7 @@ package com.seguo.mybatis.mapper;
 
 
 import com.seguo.mybatis.dao.UserDao;
+import com.seguo.mybatis.po.Blog;
 import com.seguo.mybatis.po.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,7 +14,7 @@ public interface UserMapper extends UserDao {
     @Override
     List<User> selectUsersByName(@Param("name") String name);
     @Override
-    List<User> selectAllBlog();
+    List<Blog> selectAllBlog();
     @Override
     int changeUsersByID(String id,String newName);
     @Override

@@ -1,5 +1,6 @@
 package com.seguo.mybatis.service.impl;
 
+import com.seguo.mybatis.po.Blog;
 import com.seguo.mybatis.service.UserService;
 import com.seguo.mybatis.mapper.UserMapper;
 import com.seguo.mybatis.po.User;
@@ -20,12 +21,23 @@ public class UserServiceSimple implements UserService {
         userMapper.deleteUsersByID(id);
         return "deleteSuccess";
     }
+    @Override
+    public List<Blog> selectAllBlog()  {
+        return userMapper.selectAllBlog();
+    }
 
     @Override
     public String addNewUser(User user) {
         userMapper.addNewUser(user);
         return "addNewUser.success";
     }
+
+    @Override
+    public Blog addNewBlog(Blog blog) {
+        userMapper.addNewBlog(blog);
+        return blog;
+    }
+
     @Override
     public List<User> selectUsersByName(String name){
         return userMapper.selectUsersByName(name);

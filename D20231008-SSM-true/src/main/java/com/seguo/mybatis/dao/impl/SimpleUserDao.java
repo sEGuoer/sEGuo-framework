@@ -1,6 +1,7 @@
 package com.seguo.mybatis.dao.impl;
 
 import com.seguo.mybatis.dao.UserDao;
+import com.seguo.mybatis.po.Blog;
 import com.seguo.mybatis.po.User;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class SimpleUserDao implements UserDao {
     }
 
     @Override
-    public List<User> selectAllBlog() {
+    public List<Blog> selectAllBlog() {
         return null;
     }
 
@@ -33,6 +34,11 @@ public class SimpleUserDao implements UserDao {
 
     @Override
     public int addNewUser(User user) {
+        return 0;
+    }
+
+    @Override
+    public int addNewBlog(Blog blog) {
         return 0;
     }
 
