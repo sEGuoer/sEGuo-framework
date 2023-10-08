@@ -28,4 +28,8 @@ public class HelloController {
         return url;
     }
 
+    @RequestMapping("/demo")
+    public String demo(){
+        return "/WEB-INF/index.html";
+    }
 }
