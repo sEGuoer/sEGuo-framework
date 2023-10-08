@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seguo.mybatis.mapper.UserMapper">
+
+    <select id="selectUsersByName" resultMap="RuseltMape">
+        select *
+        from tb_user
+        where name LIKE #{name}
+    </select>
+    <select id="selectBlogContent" resultType="string">
+        select content
+        from blog_table
+        where title = #{title}
+    </select>
+    <select id="selectAllBlog" resultMap="AllBlog">
+        select *
+        from blog_table
+        where title LIKE *
+    </select>
+    <delete id="deleteUsersByID" >
+        delete
+        from tb_user where id = #{id}
+    </delete>
+    <update id="changeUsersByID">
+        update tb_user
+        set name = #{newName}
+        where id = #{id}
+    </update>
+    <insert id="addNewUser" useGeneratedKeys="true" >
+        insert into tb_user (name)
+        values (#{name})
+    </insert>
+    <resultMap id="RuseltMape" type="com.seguo.mybatis.po.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+    <resultMap id="AllBlog" type="com.seguo.mybatis.po.Blog">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="creater" column="creater"/>
+        <result property="cover" column="cover"/>
+        <result property="slug" column="slug"/>
+        <result property="creat_time" column="creat_time"/>
+        <result property="update_time" column="update_time"/>
+        <result property="user_id" column="user_id"/>
+        <result property="content" column="content"/>
+        <result property="content_type" column="content_type"/>
+        <result property="reading_time" column="reading_time"/>
+    </resultMap>
+</mapper>

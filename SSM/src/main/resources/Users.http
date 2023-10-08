@@ -1,0 +1,15 @@
+### Users.index
+GET     http://localhost:8080/SSMtrue_war/users
+Accept: application/json
+
+### posts.store
+POST http://localhost:8080/SSMtrue_war/users
+Content-Type: application/json
+
+{
+  "name": "zcy"
+}
+
+### User.show
+GET     http://localhost:8080/SSMtrue_war/users/9
+Accept: application/json
