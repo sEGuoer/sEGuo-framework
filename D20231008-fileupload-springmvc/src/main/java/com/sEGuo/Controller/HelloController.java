@@ -32,4 +32,8 @@ public class HelloController {
     public String demo(){
         return "/WEB-INF/index.html";
     }
+    @RequestMapping("/registerDemo")
+    public String registerDemo(){
+        return "/demo";
+    }
 }
