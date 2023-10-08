@@ -12,7 +12,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 @WebServlet("/fileUpload")
-@MultipartConfig
+@MultipartConfig(
+        //location = "",
+        maxFileSize = 1024 * 1024,
+        maxRequestSize = 1024 * 1024 * 5,
+        fileSizeThreshold = 1024 * 1024 * 5
+)
 public class fileLoader extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,7 +39,7 @@ public class fileLoader extends HttpServlet {
         //2. 获取response字节输出流
         ServletOutputStream os = resp.getOutputStream();
         //3. 完成流的copy
-        IOUtils.copy(fis,os);
+        IOUtils.copy(fis, os);
         fis.close();
     }
 }
