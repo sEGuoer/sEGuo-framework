@@ -2,18 +2,20 @@ package com.seguo.mybatis.po;
 
 import java.util.Date;
 
+
 public class Blog {
     private int id;
+
     private String title;
-    private String creater;
+    private String creator;
     private String cover;
     private String slug;
-    private Date creat_time;
-    private Date update_time;
-    private int user_id;
+    private Date createTime;
+    private Date updateTime;
+    private int userId;
     private String content;
-    private String content_type;
-    private int reading_time;
+    private String contentType;
+    private int readingTime;
 
     public int getId() {
         return id;
@@ -31,12 +33,12 @@ public class Blog {
         this.title = title;
     }
 
-    public String getCreater() {
-        return creater;
+    public String getCreator() {
+        return creator;
     }
 
-    public void setCreater(String creater) {
-        this.creater = creater;
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 
     public String getCover() {
@@ -55,28 +57,28 @@ public class Blog {
         this.slug = slug;
     }
 
-    public Date getCreat_time() {
-        return creat_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreat_time(Date creat_time) {
-        this.creat_time = creat_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getUpdate_time() {
-        return update_time;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getContent() {
@@ -87,19 +89,19 @@ public class Blog {
         this.content = content;
     }
 
-    public String getContent_type() {
-        return content_type;
+    public String getContentType() {
+        return contentType;
     }
 
-    public void setContent_type(String content_type) {
-        this.content_type = content_type;
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 
-    public int getReading_time() {
-        return reading_time;
+    public int getReadingTime() {
+        return readingTime;
     }
 
-    public void setReading_time(int reading_time) {
-        this.reading_time = reading_time;
+    public void setReadingTime(int readingTime) {
+        this.readingTime = readingTime;
     }
 }
