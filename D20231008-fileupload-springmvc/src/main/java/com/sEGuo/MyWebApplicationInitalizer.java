@@ -2,6 +2,8 @@ package com.sEGuo;
 
 import com.sEGuo.Config.MyRootConfig;
 import com.sEGuo.Config.MyWebConfig;
+import jakarta.servlet.MultipartConfigElement;
+import jakarta.servlet.ServletRegistration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class MyWebApplicationInitalizer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -18,5 +20,10 @@ public class MyWebApplicationInitalizer extends AbstractAnnotationConfigDispatch
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(new MultipartConfigElement(""));
     }
 }
