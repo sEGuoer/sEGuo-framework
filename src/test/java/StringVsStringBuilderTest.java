@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 
 public class StringVsStringBuilderTest {
     @Test
+    @Disable
+    @DisplayName("Disable用来让当前Test不进行")
     void StringTest(){
         String s ="null";
         long start = System.currentTimeMillis();
