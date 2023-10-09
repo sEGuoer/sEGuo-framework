@@ -46,4 +46,9 @@ public class SimpleUserDao implements UserDao {
     public int deleteUsersByID(String id) {
         return 0;
     }
+
+    @Override
+    public int deleteBlogByID(String id) {
+        return 0;
+    }
 }

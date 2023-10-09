@@ -12,6 +12,7 @@ public interface UserService {
     String deleteUsersByID(String id) ;
     String addNewUser(User user) ;
     Blog addNewBlog(Blog blog) ;
+    String deleteBlogByID(String id);
 
     List<User> selectUsersByName(String name);
 

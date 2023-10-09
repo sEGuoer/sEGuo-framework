@@ -23,6 +23,11 @@
         from tb_user
         where id = #{id}
     </delete>
+    <delete id="deleteBlogByID">
+        delete
+        from blog_table
+        where id = #{id}
+    </delete>
     <update id="changeUsersByID">
         update tb_user
         set name = #{newName}
@@ -37,9 +42,9 @@
         insert into tb_user (name)
         values (#{name})
     </insert>
-    <insert id="addNewBlog" useGeneratedKeys="true">
-        insert into tb_user (id, title, creator, cover, slug, create_time, update_time, user_id, content, content_type, reading_time)
-        values (#{id}, #{title}, #{creator}, #{cover}, #{slug}, #{create_time}, #{update_time}, #{user_id}, #{content}, #{content_type}, #{reading_time})
+    <insert id="addNewBlog" >
+        insert into blog_table (id, title, creator, cover, slug, create_time, update_time, user_id, content, content_type, reading_time)
+        values (#{id}, #{title}, #{creator}, #{cover}, #{slug}, #{createTime}, #{updateTime}, #{userId}, #{content}, #{contentType}, #{readingTime})
     </insert>
     <resultMap id="RuseltMape" type="com.seguo.mybatis.po.User">
         <id property="id" column="id"/>

@@ -14,6 +14,7 @@ public interface UserDao {
     int addNewUser(User user);
     int addNewBlog(Blog blog);
     int deleteUsersByID(String id);
+    int deleteBlogByID(String id);
 
     String selectBlogContent(String title);
 }

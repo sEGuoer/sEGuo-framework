@@ -19,3 +19,7 @@ Content-Type: application/json
     "content_type": "md",
     "reading_time": 0
   }
+
+### blog.delete
+DELETE http://localhost:8080/D20231008_SSM_true_war/blog/0
+Content-Type: application/json

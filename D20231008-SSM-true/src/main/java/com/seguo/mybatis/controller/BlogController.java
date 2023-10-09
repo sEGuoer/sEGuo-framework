@@ -4,10 +4,7 @@ import com.seguo.mybatis.po.Blog;
 import com.seguo.mybatis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
@@ -36,5 +33,11 @@ public class BlogController {
     @ResponseBody
     Blog store(Blog blog) {
         return userService.addNewBlog(blog);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    String destory(@PathVariable String id) {
+        return userService.deleteBlogByID(id);
     }
 }

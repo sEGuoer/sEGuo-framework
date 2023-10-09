@@ -39,6 +39,12 @@ public class UserServiceSimple implements UserService {
     }
 
     @Override
+    public String deleteBlogByID(String id) {
+        userMapper.deleteBlogByID(id);
+        return "UserServiceSimple.deleteBlogByID";
+    }
+
+    @Override
     public List<User> selectUsersByName(String name){
         return userMapper.selectUsersByName(name);
     }
