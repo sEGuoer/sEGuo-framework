@@ -15,4 +15,8 @@ public class HelloController {
     public String forward(){
         return "forward:" + "/HelloSpringWebMvc";
     }
+    @RequestMapping("/redirect")
+    public String redirect(){
+        return "redirect:" + "/HelloSpringWebMvc";
+    }
 }
