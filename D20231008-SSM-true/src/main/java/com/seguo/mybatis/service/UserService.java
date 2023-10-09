@@ -19,5 +19,6 @@ public interface UserService {
 
     String changeUsersByID(String id, String newName) throws IOException;
     public List<Blog> selectAllBlog();
+    public List<User> selectAllUser();
     List<Blog> selectBlogByPage(int page,int perpage);
 }

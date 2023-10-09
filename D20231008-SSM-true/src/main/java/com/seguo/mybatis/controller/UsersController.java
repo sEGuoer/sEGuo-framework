@@ -19,7 +19,7 @@ public class UsersController {
     @GetMapping
     @ResponseBody
     List<User> index() throws IOException {
-        return userService.selectUsersByName("%");
+        return userService.selectAllUser();
     }
 
     @PostMapping

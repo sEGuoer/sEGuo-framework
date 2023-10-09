@@ -22,6 +22,10 @@ public interface UserMapper extends UserDao {
     @Override
     int deleteUsersByID(String id);
     int deleteBlogByID(String id);
+
+    @Override
+    List<User> selectAllUser();
+
     @Override
     String selectBlogContent(@Param("title") String title);
 

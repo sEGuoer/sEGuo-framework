@@ -4,13 +4,32 @@ import java.util.List;
 
 public class User {
     private int id;
+    private String role;
+    private String password;
+
     private List<Blog> blogs;
 
-    public List<Blog> getBlog() {
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Blog> getBlogs() {
         return blogs;
     }
 
-    public void setBlog(List<Blog> blogs) {
+    public void setBlogs(List<Blog> blogs) {
         this.blogs = blogs;
     }
 

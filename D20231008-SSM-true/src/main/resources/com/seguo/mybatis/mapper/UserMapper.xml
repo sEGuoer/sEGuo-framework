@@ -9,6 +9,12 @@
         from tb_user
         where name LIKE #{name}
     </select>
+    <select id="selectAllUser" resultMap="RuseltMape">
+        select *
+        from tb_user u
+        LEFT JOIN blog_table b
+        on u.id = b.user_id
+    </select>
     <select id="selectBlogContent" resultType="string">
         select content
         from blog_table
@@ -68,15 +74,16 @@
         </set>
         where id = #{id}
     </update>
-    <resultMap id="RuseltMape" type="com.seguo.mybatis.po.User">
-        <id property="id" column="id"/>
-        <result property="name" column="name"/>
-        <collection property="blogs" javaType="com.seguo.mybatis.po.Blog" autoMapping="true"/>
+    <resultMap id="RuseltMape" type="com.seguo.mybatis.po.User" autoMapping="true">
+        <collection property="blogs" ofType="com.seguo.mybatis.po.Blog" autoMapping="true">
+        </collection>
     </resultMap>
-    <resultMap id="AllBlog" type="com.seguo.mybatis.po.Blog">
+    <resultMap id="AllBlog" type="com.seguo.mybatis.po.Blog" autoMapping="true">
         <association property="user" javaType="com.seguo.mybatis.po.User">
-            <id property="id" column="id"/>
+            <id property="id" column="tb_user.id"/>
             <result property="name" column="name"/>
+            <result property="role" column="role"/>
+            <result property="password" column="password"/>
         </association>
     </resultMap>
 </mapper>

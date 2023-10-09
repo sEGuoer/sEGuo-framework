@@ -34,6 +34,11 @@ public class SimpleUserDao implements UserDao {
     }
 
     @Override
+    public List<User> selectAllUser() {
+        return null;
+    }
+
+    @Override
     public int changeUsersByID(String id,String newName) {
         return 0;
     }
