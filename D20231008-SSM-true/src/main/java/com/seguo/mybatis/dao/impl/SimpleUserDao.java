@@ -6,6 +6,7 @@ import com.seguo.mybatis.po.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 //@Component
 public class SimpleUserDao implements UserDao {
@@ -54,6 +55,11 @@ public class SimpleUserDao implements UserDao {
 
     @Override
     public int deleteBlogByID(String id) {
+        return 0;
+    }
+
+    @Override
+    public int updateBlog(Map map) {
         return 0;
     }
 }
