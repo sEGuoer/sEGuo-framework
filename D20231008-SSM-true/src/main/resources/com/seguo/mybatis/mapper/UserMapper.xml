@@ -16,7 +16,9 @@
     </select>
     <select id="selectAllBlog" resultMap="AllBlog">
         select *
-        from blog_table
+        from blog_table b
+        LEFT JOIN tb_user u
+        on b.user_id = u.id
     </select>
     <select id="selectBlogByPage" resultMap="AllBlog">
         select *
@@ -51,21 +53,43 @@
         insert into blog_table (id, title, creator, cover, slug, create_time, update_time, user_id, content, content_type, reading_time)
         values (#{id}, #{title}, #{creator}, #{cover}, #{slug}, #{createTime}, #{updateTime}, #{userId}, #{content}, #{contentType}, #{readingTime})
     </insert>
+    <update id="updateBlog">
+        update blog_table
+        <set>
+            <if test="slug != null and slug !=''">
+                slug = #{slug},
+            </if>
+            <if test="updateTime != null and updateTime !=''">
+                updateTime = #{updateTime},
+            </if>
+            <if test="content != null and content !=''">
+                content = #{content},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
     <resultMap id="RuseltMape" type="com.seguo.mybatis.po.User">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
+        <collection property="blog" javaType="com.seguo.mybatis.po.Blog">
+            <result property="id" column="id"/>
+            <result property="createTime" column="create_time"/>
+            <result property="updateTime" column="update_time"/>
+            <result property="userId" column="user_id"/>
+            <result property="contentType" column="content_type"/>
+            <result property="readingTime" column="reading_time"/>
+        </collection>
     </resultMap>
     <resultMap id="AllBlog" type="com.seguo.mybatis.po.Blog">
         <result property="id" column="id"/>
-        <result property="title" column="title"/>
-        <result property="creator" column="creator"/>
-        <result property="cover" column="cover"/>
-        <result property="slug" column="slug"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
         <result property="userId" column="user_id"/>
-        <result property="content" column="content"/>
         <result property="contentType" column="content_type"/>
         <result property="readingTime" column="reading_time"/>
+        <collection property="user" javaType="com.seguo.mybatis.po.User">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </collection>
     </resultMap>
 </mapper>

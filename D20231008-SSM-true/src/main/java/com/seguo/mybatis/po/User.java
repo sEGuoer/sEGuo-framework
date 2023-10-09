@@ -2,6 +2,15 @@ package com.seguo.mybatis.po;
 
 public class User {
     private int id;
+    private Blog blog;
+
+    public Blog getBlog() {
+        return blog;
+    }
+
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+    }
 
     public User(String name) {
         this.name = name;
