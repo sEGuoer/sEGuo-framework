@@ -17,7 +17,7 @@ public class BlogTest {
     @DisplayName("测试addBlog是否能正常使用")
     void addBlogTest() {
         Blog blog = new Blog();
-        blog.setId(1);
+        blog.setId(3);
         blog.setTitle("1");
         blog.setCreator("1");
         blog.setCover("1");
