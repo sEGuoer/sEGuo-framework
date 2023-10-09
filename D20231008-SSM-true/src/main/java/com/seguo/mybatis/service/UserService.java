@@ -2,6 +2,7 @@ package com.seguo.mybatis.service;
 
 import com.seguo.mybatis.po.Blog;
 import com.seguo.mybatis.po.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,4 +19,5 @@ public interface UserService {
 
     String changeUsersByID(String id, String newName) throws IOException;
     public List<Blog> selectAllBlog();
+    List<Blog> selectBlogByPage(int page,int perpage);
 }

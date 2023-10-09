@@ -2,6 +2,10 @@
 GET     http://localhost:8080/D20231008_SSM_true_war/blog
 Accept: application/json
 
+### blog.index
+GET     http://localhost:8080/D20231008_SSM_true_war/blog?page=2&perpage=2
+Accept: application/json
+
 ### blog.store
 POST     http://localhost:8080/D20231008_SSM_true_war/blog
 Content-Type: application/json

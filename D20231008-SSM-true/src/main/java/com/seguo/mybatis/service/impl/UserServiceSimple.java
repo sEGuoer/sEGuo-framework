@@ -27,6 +27,11 @@ public class UserServiceSimple implements UserService {
     }
 
     @Override
+    public List<Blog> selectBlogByPage(int page, int perpage) {
+       return userMapper.selectBlogByPage(page-1,perpage);
+    }
+
+    @Override
     public String addNewUser(User user) {
         userMapper.addNewUser(user);
         return "addNewUser.success";

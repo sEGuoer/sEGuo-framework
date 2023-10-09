@@ -18,6 +18,11 @@
         select *
         from blog_table
     </select>
+    <select id="selectBlogByPage" resultMap="AllBlog">
+        select *
+        from blog_table
+        limit #{rowCount} offset #{offset}
+    </select>
     <delete id="deleteUsersByID">
         delete
         from tb_user

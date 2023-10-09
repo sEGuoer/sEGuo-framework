@@ -26,8 +26,12 @@ public class BlogController {
 
     @GetMapping
     @ResponseBody
-    List<Blog> index() {
-        return userService.selectAllBlog();
+    List<Blog> index(@RequestParam(defaultValue = "0")int page,@RequestParam(defaultValue = "0")int perpage) {
+        if (page == 0 && perpage == 0){
+            return userService.selectAllBlog();
+        }else {
+            return userService.selectBlogByPage(page,perpage);
+        }
     }
     @PostMapping
     @ResponseBody
