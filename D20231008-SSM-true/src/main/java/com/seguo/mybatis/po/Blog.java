@@ -1,5 +1,7 @@
 package com.seguo.mybatis.po;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 
@@ -16,6 +18,7 @@ public class Blog {
     private String content;
     private String contentType;
     private int readingTime;
+    @JsonIgnore
     private User user;
 
     public User getUser() {

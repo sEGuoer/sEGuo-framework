@@ -1,12 +1,15 @@
 package com.seguo.mybatis.po;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 public class User {
     private int id;
     private String role;
+    @JsonIgnore
     private String password;
-
+    @JsonIgnore
     private List<Blog> blogs;
 
     public String getRole() {
