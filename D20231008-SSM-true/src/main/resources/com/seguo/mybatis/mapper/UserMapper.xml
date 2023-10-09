@@ -73,12 +73,6 @@
         <result property="name" column="name"/>
     </resultMap>
     <resultMap id="AllBlog" type="com.seguo.mybatis.po.Blog">
-        <result property="id" column="id"/>
-        <result property="createTime" column="create_time"/>
-        <result property="updateTime" column="update_time"/>
-        <result property="userId" column="user_id"/>
-        <result property="contentType" column="content_type"/>
-        <result property="readingTime" column="reading_time"/>
         <association property="user" javaType="com.seguo.mybatis.po.User">
             <id property="id" column="id"/>
             <result property="name" column="name"/>
