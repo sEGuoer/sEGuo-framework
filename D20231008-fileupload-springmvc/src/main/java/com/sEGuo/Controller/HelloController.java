@@ -23,7 +23,7 @@ public class HelloController {
         System.out.println("文件类型：" + file.getContentType());
         System.out.println("文件大小：" + file.getSize());
         //1.把文件写入到磁盘中的指定目录
-        String url = "C:\\Users\\Administrator\\Desktop\\sEGuo-framework\\D20231008-fileupload-springmvc\\src\\main\\webapp\\img\\" + file.getSubmittedFileName();
+        String url = "C:\\Users\\Administrator\\Desktop\\sEGuo-framework\\D20231008-fileupload-springmvc\\src\\main\\webapp\\WEB-INF\\img\\" + file.getSubmittedFileName();
         file.write(url);
         return url;
     }
