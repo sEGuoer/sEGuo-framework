@@ -1,15 +1,17 @@
 package com.seguo.mybatis.po;
 
+import java.util.List;
+
 public class User {
     private int id;
-    private Blog blog;
+    private List<Blog> blogs;
 
-    public Blog getBlog() {
-        return blog;
+    public List<Blog> getBlog() {
+        return blogs;
     }
 
-    public void setBlog(Blog blog) {
-        this.blog = blog;
+    public void setBlog(List<Blog> blogs) {
+        this.blogs = blogs;
     }
 
     public User(String name) {
