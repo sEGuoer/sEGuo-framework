@@ -48,7 +48,7 @@ public class User {
         this.name = name;
     }
 
-    @Email
+    @Email(message = "邮箱已被注册")
     private String name;
 
     public User() {
