@@ -17,9 +17,8 @@ public class UserServiceSimple implements UserService {
     UserMapper userMapper;
 
     @Override
-    public String deleteUsersByID(String id)  {
-        userMapper.deleteUsersByID(id);
-        return "deleteSuccess";
+    public int deleteUsersByID(String id)  {
+        return userMapper.deleteUsersByID(id);
     }
     @Override
     public List<Blog> selectAllBlog()  {
@@ -37,9 +36,8 @@ public class UserServiceSimple implements UserService {
     }
 
     @Override
-    public String addNewUser(User user) {
-        userMapper.addNewUser(user);
-        return "addNewUser.success";
+    public int addNewUser(User user) {
+        return userMapper.addNewUser(user);
     }
 
     @Override
@@ -49,9 +47,8 @@ public class UserServiceSimple implements UserService {
     }
 
     @Override
-    public String deleteBlogByID(String id) {
-        userMapper.deleteBlogByID(id);
-        return "UserServiceSimple.deleteBlogByID";
+    public int deleteBlogByID(String id) {
+        return userMapper.deleteBlogByID(id);
     }
 
     @Override
@@ -59,9 +56,8 @@ public class UserServiceSimple implements UserService {
         return userMapper.selectUsersByName(name);
     }
     @Override
-    public String changeUsersByID(String id,String newName) throws IOException {
-        userMapper.changeUsersByID(id,newName);
-        return "changeUsersByID.Success";
+    public int changeUsersByID(String id,String newName) throws IOException {
+        return userMapper.changeUsersByID(id,newName);
     }
 
     @Override

@@ -10,14 +10,14 @@ import java.util.List;
 public interface UserService {
     String add();
     String selectBlogContent(String title) throws IOException;
-    String deleteUsersByID(String id) ;
-    String addNewUser(User user) ;
+    int deleteUsersByID(String id) ;
+    int addNewUser(User user) ;
     Blog addNewBlog(Blog blog) ;
-    String deleteBlogByID(String id);
+    int deleteBlogByID(String id);
 
     List<User> selectUsersByName(String name);
 
-    String changeUsersByID(String id, String newName) throws IOException;
+    int changeUsersByID(String id, String newName) throws IOException;
     public List<Blog> selectAllBlog();
     public List<User> selectAllUser();
     List<Blog> selectBlogByPage(int page,int perpage);
