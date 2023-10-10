@@ -1,6 +1,7 @@
 package com.seguo.mybatis.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +28,8 @@ public class HelloController {
         return "redirect:" + "/HelloSpringWebMvc";
     }
     @RequestMapping("/page-show")
-    public String pageShow(){
+    public String pageShow(Model model){
+        model.addAttribute("show","niemaomaode");
         return "page";
     }
 }
