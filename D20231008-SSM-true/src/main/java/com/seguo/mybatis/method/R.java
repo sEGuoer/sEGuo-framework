@@ -18,4 +18,7 @@ public class R {
     public static R ok(Integer state, Object data){
         return new R(state,HttpStatus.OK.getReasonPhrase(),data);
     }
+    public static R ok(){
+        return new R(HttpStatus.OK.value(),HttpStatus.OK.getReasonPhrase(),"ok");
+    }
 }
