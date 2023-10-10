@@ -7,7 +7,7 @@ POST http://localhost:8080/D20231008_SSM_true_war/users
 Content-Type: application/json
 
 {
-  "name": "zcy"
+  "name": "z"
 }
 
 ### User.show

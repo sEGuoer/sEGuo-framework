@@ -1,6 +1,7 @@
 package com.seguo.mybatis.controller;
 
 import com.seguo.mybatis.po.User;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class UsersController {
 
     @PostMapping
     @ResponseBody
-    User add(@RequestBody User user) {
+    User add(@Valid @RequestBody User user) {
         userService.addNewUser(user);
         return user;
     }
