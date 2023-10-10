@@ -6,10 +6,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
-    @RequestMapping("/HelloSpringWebMvc")
+    @RequestMapping("/HelloSpringWebMvc/i")
     @ResponseBody
-    public String helloSpringWebMvc(){
-        System.out.println("HelloController.helloSpringWebMvc");
+    public String helloSpringWebMvcI(){
+        System.out.println("HelloController.helloSpringWebMvcI");
+        return "helloSpringWebMvc";
+    }
+    @RequestMapping("/HelloSpringWebMvc/j")
+    @ResponseBody
+    public String helloSpringWebMvcJ(){
+        System.out.println("HelloController.helloSpringWebMvcJ");
         return "helloSpringWebMvc";
     }
     @RequestMapping("/forward")

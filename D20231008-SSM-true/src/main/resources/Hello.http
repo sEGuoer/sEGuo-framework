@@ -1,3 +1,7 @@
-### Hello.index
-GET     http://localhost:8080/D20231008_SSM_true_war/HelloSpringWebMvc
+### Hello.index j
+GET     http://localhost:8080/D20231008_SSM_true_war/HelloSpringWebMvc/j
+Accept: application/json
+
+### Hello.index i
+GET     http://localhost:8080/D20231008_SSM_true_war/HelloSpringWebMvc/i
 Accept: application/json

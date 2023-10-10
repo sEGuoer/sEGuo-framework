@@ -19,6 +19,6 @@ public class MyWebConfig implements HandlerInterceptor , WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new InterceptorConfig()).addPathPatterns("/HelloSpringWebMvc");
+        registry.addInterceptor(new InterceptorConfig("x")).addPathPatterns("/HelloSpringWebMvc/i");
     }
 }
