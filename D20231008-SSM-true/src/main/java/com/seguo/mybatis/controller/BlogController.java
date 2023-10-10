@@ -1,5 +1,6 @@
 package com.seguo.mybatis.controller;
 
+import com.seguo.mybatis.method.CommonResponse;
 import com.seguo.mybatis.po.Blog;
 import com.seguo.mybatis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,33 +16,33 @@ import java.util.List;
 public class BlogController {
     @Autowired
     UserService userService;
-    @RequestMapping(value = "/page/MySQL")
+/*    @RequestMapping(value = "/page/MySQL")
     ModelAndView register() throws IOException {
         ModelAndView modelAndView = new ModelAndView();
         String content = userService.selectBlogContent("MySQL");
         modelAndView.addObject("Content",content);
         modelAndView.setViewName("../MySQL.jsp");
         return modelAndView;
-    }
+    }*/
 
     @GetMapping
     @ResponseBody
-    List<Blog> index(@RequestParam(defaultValue = "0")int page,@RequestParam(defaultValue = "0")int perpage) {
+    CommonResponse index(@RequestParam(defaultValue = "0")int page, @RequestParam(defaultValue = "0")int perpage) {
         if (page == 0 && perpage == 0){
-            return userService.selectAllBlog();
+            return CommonResponse.ok(userService.selectAllBlog());
         }else {
-            return userService.selectBlogByPage(page,perpage);
+            return CommonResponse.ok(userService.selectBlogByPage(page,perpage));
         }
     }
     @PostMapping
     @ResponseBody
-    Blog store(Blog blog) {
-        return userService.addNewBlog(blog);
+    CommonResponse store(Blog blog) {
+        return CommonResponse.ok(userService.addNewBlog(blog));
     }
 
     @DeleteMapping("/{id}")
     @ResponseBody
-    String destory(@PathVariable String id) {
-        return userService.deleteBlogByID(id);
+    CommonResponse destory(@PathVariable String id) {
+        return CommonResponse.ok(userService.deleteBlogByID(id));
     }
 }
