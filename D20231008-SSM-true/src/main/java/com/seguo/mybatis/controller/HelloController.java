@@ -26,4 +26,8 @@ public class HelloController {
     public String redirect(){
         return "redirect:" + "/HelloSpringWebMvc";
     }
+    @RequestMapping("/page-show")
+    public String pageShow(){
+        return "page";
+    }
 }

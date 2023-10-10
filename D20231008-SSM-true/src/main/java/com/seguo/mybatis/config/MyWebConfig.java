@@ -7,9 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.request.WebRequestInterceptor;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 
 @Configuration
 @ComponentScan("com.seguo.mybatis.controller")
@@ -21,5 +19,10 @@ public class MyWebConfig implements HandlerInterceptor , WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new InterceptorConfig("x")).addPathPatterns("/HelloSpringWebMvc/*").excludePathPatterns("/HelloSpringWebMvc/j");
         registry.addInterceptor(new InterceptorConfig("y")).addPathPatterns("/HelloSpringWebMvc/*").excludePathPatterns("/HelloSpringWebMvc/j");
+    }
+
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.jsp();
     }
 }
