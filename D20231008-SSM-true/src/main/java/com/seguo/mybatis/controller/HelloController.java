@@ -9,6 +9,7 @@ public class HelloController {
     @RequestMapping("/HelloSpringWebMvc")
     @ResponseBody
     public String helloSpringWebMvc(){
+        System.out.println("HelloController.helloSpringWebMvc");
         return "helloSpringWebMvc";
     }
     @RequestMapping("/forward")
