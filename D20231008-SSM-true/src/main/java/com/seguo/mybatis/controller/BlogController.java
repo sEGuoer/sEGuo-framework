@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/blog")
 public class BlogController {
     @Autowired
@@ -22,7 +22,6 @@ public class BlogController {
     }*/
 
     @GetMapping
-    @ResponseBody
     R index(@RequestParam(defaultValue = "0")int page, @RequestParam(defaultValue = "0")int perpage) {
         if (page == 0 && perpage == 0){
             return R.ok(userService.selectAllBlog());
@@ -31,13 +30,11 @@ public class BlogController {
         }
     }
     @PostMapping
-    @ResponseBody
     R store(Blog blog) {
         return R.ok(userService.addNewBlog(blog));
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     R destory(@PathVariable String id) {
         return R.ok(userService.deleteBlogByID(id));
     }
