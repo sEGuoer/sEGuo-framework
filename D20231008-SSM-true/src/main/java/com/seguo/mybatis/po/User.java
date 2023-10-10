@@ -1,6 +1,7 @@
 package com.seguo.mybatis.po;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
@@ -47,8 +48,7 @@ public class User {
         this.name = name;
     }
 
-    @NotEmpty
-    @Size(min = 3,max = 12)
+    @Email
     private String name;
 
     public User() {
