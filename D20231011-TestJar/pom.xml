@@ -6,11 +6,10 @@
         <artifactId>sEGuo-framework</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>org.seguoer</groupId>
-    <artifactId>MyselvesServlet</artifactId>
-    <version>1.0-Test</version>
-    <packaging>jar</packaging>
-    <name>MyselvesServlet Maven Webapp</name>
+    <groupId>org.seguo</groupId>
+    <artifactId>D20231011-TestJar</artifactId>
+    <packaging>war</packaging>
+    <name>D20231011-TestJar Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -19,17 +18,13 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.seguoer</groupId>
+            <artifactId>MyselvesServlet</artifactId>
+            <version>1.0-Test</version>
+        </dependency>
     </dependencies>
     <build>
-        <finalName>MyselvesServlet</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>3.3.2</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <finalName>D20231011-TestJar</finalName>
     </build>
 </project>
