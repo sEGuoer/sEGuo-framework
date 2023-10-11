@@ -15,7 +15,6 @@
         <module>D20231008-fileupload-servlet</module>
         <module>D20231008-fileupload-springmvc</module>
         <module>MyselvesServlet</module>
-        <module>D20231011-TestJar</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
