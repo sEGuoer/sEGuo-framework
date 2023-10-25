@@ -1,4 +1,4 @@
-package com.seguoer.d20231025sb;
+package com.seguoer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

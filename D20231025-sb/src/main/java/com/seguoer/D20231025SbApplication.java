@@ -1,4 +1,4 @@
-package com.seguoer.d20231025sb;
+package com.seguoer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
