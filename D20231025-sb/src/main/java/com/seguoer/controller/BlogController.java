@@ -33,9 +33,9 @@ public class BlogController {
     }
 
     @GetMapping("/{id}")
-    Blog show(@PathVariable String id) {
+    R show(@PathVariable String id) {
         if (userService.selectBlogs(id) != null){
-            return userService.selectBlogs(id).get(0);
+            return R.ok(userService.selectBlogs(id).get(0));
         }else {
             return null;
         }
