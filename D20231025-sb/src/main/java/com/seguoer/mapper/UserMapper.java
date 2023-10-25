@@ -51,6 +51,7 @@ public interface UserMapper extends UserDao {
 
     @Override
     List<User> selectAllUser();
+    void testMethod(String id);
 
     @Override
     String selectBlogContent(@Param("title") String title);
