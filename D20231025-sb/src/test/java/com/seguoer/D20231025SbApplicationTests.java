@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -48,4 +48,17 @@ class D20231025SbApplicationTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("tags.*.description", hasItem("博客管理")))
         ;
     }
+    @Test
+    @DisplayName("""
+               @Operation(summary = "博客列表", description = "支持分页的文章列表接口，默认显示第一页(page=1), 每页显示2条(perPage=2)") 
+               查看  /v3/api-docs中生成的对应内容                                                                                        
+            """)
+    void swaggerUIWithOperationAnnotation() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/v3/api-docs"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("paths['/blog'].get.summary", is("博客列表")))
+                .andExpect(MockMvcResultMatchers.jsonPath("paths['/blog'].get.description", is("支持分页的文章列表接口，默认显示第一页(page=1), 每页显示2条(perPage=2)")))
+        ;
+    }
+
 }
