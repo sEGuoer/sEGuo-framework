@@ -10,6 +10,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import static org.hamcrest.Matchers.hasItem;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 class D20231025SbApplicationTests {
@@ -34,5 +36,16 @@ class D20231025SbApplicationTests {
                 .andExpect(MockMvcResultMatchers.content().string(StringContains.containsString("<div id=\"swagger-ui\">")))
         ;
     }
-
+    @Test
+    @DisplayName("""
+            @Tag(name = "blog_controller", description = "博客管理")
+            查看是否生成@Tag对应内容
+            """)
+    void swaggerUIWithTagAnnotation() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/v3/api-docs"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("tags.*.name", hasItem("blog_controller")))
+                .andExpect(MockMvcResultMatchers.jsonPath("tags.*.description", hasItem("博客管理")))
+        ;
+    }
 }

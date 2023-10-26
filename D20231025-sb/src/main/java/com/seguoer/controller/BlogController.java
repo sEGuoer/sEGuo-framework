@@ -3,11 +3,13 @@ package com.seguoer.controller;
 import com.seguoer.method.R;
 import com.seguoer.po.Blog;
 import com.seguoer.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/blog")
+@Tag(name = "blog_controller", description = "博客管理")
 public class BlogController {
     @Autowired
     UserService userService;
