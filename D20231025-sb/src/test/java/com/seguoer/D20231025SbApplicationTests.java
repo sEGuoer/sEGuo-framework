@@ -60,5 +60,15 @@ class D20231025SbApplicationTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("paths['/blog'].get.description", is("支持分页的文章列表接口，默认显示第一页(page=1), 每页显示2条(perPage=2)")))
         ;
     }
-
+    @Test
+    @DisplayName("""
+            @Parameter(description = "当前页码")
+            @Parameter(description = "每页显示数量")
+            """)
+    void swaggerUIWithParameterAnnotation() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/v3/api-docs"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("paths['/blog'].get.parameters.*.description", hasItems("当前页码", "每页显示数量")))
+        ;
+    }
 }

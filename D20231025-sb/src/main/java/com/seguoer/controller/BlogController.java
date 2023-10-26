@@ -18,7 +18,7 @@ public class BlogController {
 
     @GetMapping
     @Operation(summary = "博客列表", description = "支持分页的文章列表接口，默认显示第一页(page=1), 每页显示2条(perPage=2)")
-    R index(@RequestParam(defaultValue = "1")int page, @RequestParam(defaultValue = "2")int perpage) {
+    R index(@Parameter(description = "当前页码")@RequestParam(defaultValue = "1")int page,@Parameter(description = "每页显示数量") @RequestParam(defaultValue = "2")int perpage) {
         if (page == 0 && perpage == 0){
             return R.ok(userService.selectAllBlog());
         }else {
