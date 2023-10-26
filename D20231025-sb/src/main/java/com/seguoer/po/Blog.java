@@ -1,8 +1,10 @@
 package com.seguoer.po;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.Date;
 
-
+@Schema(description = "博客")
 public class Blog {
     private int id;
 
